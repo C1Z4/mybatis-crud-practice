@@ -5,11 +5,11 @@ public class MemberDTO {
     private int memberCode;
     private String memberName;
     private String phone;
-    private String level;
+    private LevelDTO level;
 
     public MemberDTO() {}
 
-    public MemberDTO(int memberCode, String memberName, String phone, String level) {
+    public MemberDTO(int memberCode, String memberName, String phone, LevelDTO level) {
         this.memberCode = memberCode;
         this.memberName = memberName;
         this.phone = phone;
@@ -50,11 +50,18 @@ public class MemberDTO {
         this.phone = phone;
     }
 
-    public String getLevel() {
+    public LevelDTO getLevel() {
         return level;
     }
 
-    public void setLevel(String level) {
+    public void setLevel(LevelDTO level) {
         this.level = level;
+    }
+
+    public void setLevel(String level) {
+        if (this.level == null) {
+            this.level = new LevelDTO();
+        }
+        this.level.setLevel(level);
     }
 }
