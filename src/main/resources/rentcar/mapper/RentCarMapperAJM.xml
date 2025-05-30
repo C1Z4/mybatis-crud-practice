@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rentcar.mapper.RentCarMapperAJM">
+    <resultMap id="rentResultMap" type="rentcar.model.dto.MemberDTO">
+        <id property="memberCode" column="MEMBER_CODE"/>
+        <result property="memberName" column="MEMBER_NAME"/>
+        <result property="phone" column="PHONE"/>
+        <result property="level" column="LEVEL"/>
+    </resultMap>
+
+    <insert id="registMember" parameterType="rentcar.model.dto.MemberDTO">
+        INSERT INTO TBL_MEMBER
+        (MEMBER_NAME, PHONE, LEVEL)
+        VALUES
+        (#{ memberName }, #{ phone }, #{ level })
+    </insert>
+
+    <update id="modifyMember" parameterType="rentcar.model.dto.MemberDTO">
+        UPDATE TBL_MEMBER
+        SET MEMBER_NAME = #{ memberName }, PHONE = #{ phone }, LEVEL = #{ level }
+        WHERE MEMBER_CODE = #{ memberCode }
+    </update>
+
+    <delete id="deleteMember" parameterType="_int">
+        DELETE
+        FROM TBL_MEMBER
+        WHERE MEMBER_CODE = #{ memberCode }
+    </delete>
+
+    <select id="selectAllMember" resultMap="rentResultMap">
+        SELECT MEMBER_CODE, MEMBER_NAME, PHONE, LEVEL
+        FROM TBL_MEMBER
+        ORDER BY MEMBER_CODE;
+    </select>
+
+    <resultMap id="memberLevelInfo" type="rentcar.model.dto.MemLevDTO">
+        <id property="code" column="MEMBER_CODE"/>
+        <result property="name" column="MEMBER_NAME"/>
+        <result property="phone" column="PHONE"/>
+        <association property="level" resultMap="levelResultMap"/>
+    </resultMap>
+    <resultMap id="levelResultMap" type="rentcar.model.dto.LevelDTO">
+        <id property="level" column="LEVEL"/>
+        <result property="discountRate" column="DISCOUNT_RATE"/>
+    </resultMap>
+
+    <select id="">
+
+    </select>
+</mapper>
