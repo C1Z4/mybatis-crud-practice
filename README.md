@@ -34,7 +34,7 @@ mybatis-crud-practice
 ```
 
 
-## 🗃️ 데이터베이스 모델링
+## [🗃️ 데이터베이스 모델링](http://erdcloud.com/d/WeLzxu2E3JyEFLTve)
 ![img.png](databaseDiagram.png)
 
 ### 🔗 테이블 관계 설명
