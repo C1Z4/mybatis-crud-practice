@@ -65,3 +65,6 @@ mybatis-crud-practice
 - DBA : 류지원, 안지명
 - Document Manager : 황지희
 
+## ☑️ 기타
+- [코드 컨벤션 & git 컨벤션](https://www.notion.so/ohgiraffers/Git-203649136c118005a786f679f48439f9)
+
