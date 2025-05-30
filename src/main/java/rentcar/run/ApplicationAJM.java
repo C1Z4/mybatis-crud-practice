@@ -27,8 +27,8 @@ public class ApplicationAJM {
                 case 2: rentControllerAJM.modifyMember(inputModfiyMember()); break;
                 case 3: rentControllerAJM.deleteMember(inputDelete()); break;
                 case 4: rentControllerAJM.selectAllMember(); break;
-                case 5: rentControllerAJM.memberLevelInfo();break;
-                case 6: rentControllerAJM.allmemberLevelInfo(); break;
+//                case 5: rentControllerAJM.memberLevelInfo();break;
+//                case 6: rentControllerAJM.allmemberLevelInfo(); break;
                 default:
                     System.out.println("번호 잘못 선택"); break;
             }

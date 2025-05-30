@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="rentcar.mapper.RentCarMapper_rjw">
+    <resultMap id="levelResultMap" type="rentcar.model.dto.LevelDTO">
+        <result property="level" column="LEVEL"/>
+        <result property="discountRate" column="DISCOUNT_RATE" />
+    </resultMap>
+
+    <resultMap id="memberWithLevelResultMap" type="rentcar.model.dto.MemberDTO_rjw">
+        <id property="memberCode" column="MEMBER_CODE"/>
+        <result property="memberName" column="MEMBER_NAME"/>
+        <result property="phone" column="PHONE"/>
+        <association property="level" resultMap="levelResultMap" />
+    </resultMap>
+
+    <select id="selectMemberLevelInfo" resultMap="memberWithLevelResultMap">
+        SELECT M.MEMBER_NAME,
+               L.LEVEL,
+               L.DISCOUNT_RATE
+          FROM TBL_MEMBER M
+          JOIN TBL_LEVEL L USING(LEVEL)
+         WHERE M.MEMBER_CODE = #{ memberCode }
+    </select>
+
+    <select id="selectAllMemberWithLevel" resultMap="memberWithLevelResultMap">
+          SELECT M.MEMBER_CODE,
+                 M.MEMBER_NAME,
+                 M.PHONE,
+                 L.LEVEL,
+                 L.DISCOUNT_RATE
+            FROM TBL_MEMBER M
+            JOIN TBL_LEVEL L USING(LEVEL)
+        ORDER BY M.MEMBER_CODE
+    </select>
+
+    <insert id="registerMember" parameterType="rentcar.model.dto.MemberDTO_rjw">
+        INSERT INTO TBL_MEMBER
+        (
+        MEMBER_NAME,
+        PHONE
+        )
+        VALUES
+        (
+        #{ memberName },
+        #{ phone }
+        )
+    </insert>
+
+    <update id="modifyMember" parameterType="rentcar.model.dto.MemberDTO_rjw">
+        UPDATE TBL_MEMBER
+        <set>
+            <if test="memberName != null and memberName != ''">
+                MEMBER_NAME = #{ memberName },
+            </if>
+            <if test="phone != null and phone != ''">
+                PHONE = #{ phone },
+            </if>
+            <if test="level != null and level.level != null and level.level != ''">
+                LEVEL = #{ level.level }
+            </if>
+        </set>
+         WHERE MEMBER_CODE = #{ memberCode }
+    </update>
+
+    <delete id="deleteMember" parameterType="_int">
+        DELETE FROM TBL_MEMBER
+         WHERE MEMBER_CODE = #{ memberCode }
+    </delete>
+
+    <select id="selectLevelByName" resultMap="levelResultMap">
+        SELECT LEVEL
+              ,DISCOUNT_RATE
+          FROM TBL_LEVEL
+         WHERE LEVEL = #{ level }
+    </select>
+
+</mapper>

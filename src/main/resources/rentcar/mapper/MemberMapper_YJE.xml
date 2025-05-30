@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rentcar.mapper.MemberMapper_YJE">
+    <resultMap id="memberResultMap" type="rentcar.model.dto.MemberDTO_rjw">
+        <id property="memberCode" column="MEMBER_CODE" />
+        <result property="memberName" column="MEMBER_NAME" />
+        <result property="phone" column="PHONE" />
+        <result property="level" column="LEVEL" />
+    </resultMap>
+
+    <resultMap id="memberAndLevelResultMap" type="rentcar.model.dto.MemberAndLevelDTO_YJE">
+        <id property="memberCode" column="MEMBER_CODE" />
+        <result property="memberName" column="MEMBER_NAME" />
+        <result property="phone" column="PHONE" />
+        <association property="level" resultMap="levelResultMap" />
+    </resultMap>
+
+    <resultMap id="levelResultMap" type="rentcar.model.dto.LevelDTO">
+        <id property="level" column="LEVEL" />
+        <result property="discountRate" column="DISCOUNT_RATE" />
+    </resultMap>
+
+    <select id="selectAllMembers" resultMap="memberResultMap">
+        SELECT  MEMBER_CODE, MEMBER_NAME, PHONE, LEVEL
+        FROM    TBL_MEMBER
+        ORDER BY MEMBER_CODE
+<!--        <if test="condition != null and condition eq 'menuCode'">
+            <where>
+                A.MENU_CODE = #{ value }
+            </where>
+        </if>-->
+    </select>
+
+    <select id="selectAllMembersWith" resultMap="memberAndLevelResultMap">
+        SELECT  M.MEMBER_CODE, M.MEMBER_NAME, M.PHONE,
+                L.LEVEL, L.DISCOUNT_RATE
+        FROM    TBL_MEMBER M
+            JOIN TBL_LEVEL L USING (LEVEL)
+        ORDER BY MEMBER_CODE
+    </select>
+
+    <select id="selectMemberByCode" resultMap="memberResultMap">
+        SELECT  MEMBER_CODE, MEMBER_NAME, PHONE, LEVEL
+        FROM    TBL_MEMBER
+        WHERE   MEMBER_CODE = #{ memberCode }
+
+    </select>
+
+    <select id="selectMemberByCodeWith" resultMap="memberAndLevelResultMap">
+        SELECT  M.MEMBER_CODE, M.MEMBER_NAME, M.PHONE,
+            L.LEVEL, L.DISCOUNT_RATE
+        FROM    TBL_MEMBER M
+            JOIN TBL_LEVEL L USING (LEVEL)
+        WHERE   MEMBER_CODE = #{ memberCode }
+    </select>
+
+    <insert id="insertMember" parameterType="rentcar.model.dto.MemberDTO_rjw">
+        INSERT INTO TBL_MEMBER
+            (MEMBER_NAME, PHONE, LEVEL)
+        VALUES
+            (#{ memberName }, #{ phone }, #{ level })
+    </insert>
+
+    <update id="updateMember" parameterType="rentcar.model.dto.MemberDTO_rjw">
+        UPDATE  TBL_MEMBER
+        SET     MEMBER_NAME = #{ memberName }
+            , PHONE = #{ phone }
+            , LEVEL = #{ level }
+        WHERE   MEMBER_CODE = #{ memberCode }
+    </update>
+
+    <delete id="deleteMember" parameterType="_int">
+        DELETE
+        FROM    TBL_MEMBER
+        WHERE   MEMBER_CODE = #{ memberCode }
+    </delete>
+
+</mapper>

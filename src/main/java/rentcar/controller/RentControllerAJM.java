@@ -1,6 +1,6 @@
 package rentcar.controller;
 
-import rentcar.model.dto.MemberDTO;
+import rentcar.model.dto.MemberDTO_rjw;
 import rentcar.model.service.RentServiceAJM;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class RentControllerAJM {
         String phone = parameter.get("phone");
         String level = parameter.get("level");
 
-        MemberDTO member = new MemberDTO();
+        MemberDTO_rjw member = new MemberDTO_rjw();
         member.setMemberName(name);
         member.setPhone(phone);
         member.setLevel(level);
@@ -39,7 +39,7 @@ public class RentControllerAJM {
         String phone = parameter.get("phone");
         String level = parameter.get("level");
 
-        MemberDTO member = new MemberDTO();
+        MemberDTO_rjw member = new MemberDTO_rjw();
 
         member.setMemberCode(code);
         member.setMemberName(name);
@@ -56,7 +56,7 @@ public class RentControllerAJM {
     public void deleteMember(Map<String,String> parameter) {
         int code = Integer.parseInt(parameter.get("code"));
 
-        MemberDTO member = new MemberDTO();
+        MemberDTO_rjw member = new MemberDTO_rjw();
         member.setMemberCode(code);
 
         if(rentServiceAJM.deleteMember(member)) {
@@ -68,8 +68,8 @@ public class RentControllerAJM {
 
     public static void selectAllMember() {
 
-        List<MemberDTO> memberList = RentServiceAJM.selectAllMember();
-        for(MemberDTO member : memberList) {
+        List<MemberDTO_rjw> memberList = RentServiceAJM.selectAllMember();
+        for(MemberDTO_rjw member : memberList) {
         System.out.println(member);}
         if(memberList != null) {
             System.out.println("성공");

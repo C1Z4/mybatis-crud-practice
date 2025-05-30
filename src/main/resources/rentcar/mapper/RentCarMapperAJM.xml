@@ -3,21 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="rentcar.mapper.RentCarMapperAJM">
-    <resultMap id="rentResultMap" type="rentcar.model.dto.MemberDTO">
+    <resultMap id="rentResultMap" type="rentcar.model.dto.MemberDTO_rjw">
         <id property="memberCode" column="MEMBER_CODE"/>
         <result property="memberName" column="MEMBER_NAME"/>
         <result property="phone" column="PHONE"/>
         <result property="level" column="LEVEL"/>
     </resultMap>
 
-    <insert id="registMember" parameterType="rentcar.model.dto.MemberDTO">
+    <insert id="registMember" parameterType="rentcar.model.dto.MemberDTO_rjw">
         INSERT INTO TBL_MEMBER
         (MEMBER_NAME, PHONE, LEVEL)
         VALUES
         (#{ memberName }, #{ phone }, #{ level })
     </insert>
 
-    <update id="modifyMember" parameterType="rentcar.model.dto.MemberDTO">
+    <update id="modifyMember" parameterType="rentcar.model.dto.MemberDTO_rjw">
         UPDATE TBL_MEMBER
         SET MEMBER_NAME = #{ memberName }, PHONE = #{ phone }, LEVEL = #{ level }
         WHERE MEMBER_CODE = #{ memberCode }

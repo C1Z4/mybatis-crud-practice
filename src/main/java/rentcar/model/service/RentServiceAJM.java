@@ -2,7 +2,7 @@ package rentcar.model.service;
 
 import org.apache.ibatis.session.SqlSession;
 import rentcar.mapper.RentCarMapperAJM;
-import rentcar.model.dto.MemberDTO;
+import rentcar.model.dto.MemberDTO_rjw;
 
 import java.util.List;
 
@@ -10,20 +10,20 @@ import static rentcar.common.Template.getSqlSession;
 
 public class RentServiceAJM {
 
-    public static List<MemberDTO> selectAllMember() {
+    public static List<MemberDTO_rjw> selectAllMember() {
 
         SqlSession sqlSession = getSqlSession();
 
         RentCarMapperAJM rentCarMapperAJM = sqlSession.getMapper(RentCarMapperAJM.class);
 
-        List<MemberDTO> memberList = rentCarMapperAJM.selectAllMember();
+        List<MemberDTO_rjw> memberList = rentCarMapperAJM.selectAllMember();
 
         sqlSession.close();
 
         return memberList;
     }
 
-    public boolean registMember(MemberDTO member) {
+    public boolean registMember(MemberDTO_rjw member) {
 
         SqlSession sqlSession = getSqlSession();
 
@@ -40,7 +40,7 @@ public class RentServiceAJM {
         return result > 0? true : false;
 
     }
-    public boolean modifyMember(MemberDTO member) {
+    public boolean modifyMember(MemberDTO_rjw member) {
 
         SqlSession sqlSession = getSqlSession();
 
@@ -57,7 +57,7 @@ public class RentServiceAJM {
         return result > 0? true : false;
     }
 
-    public boolean deleteMember(MemberDTO member) {
+    public boolean deleteMember(MemberDTO_rjw member) {
 
         SqlSession sqlSession = getSqlSession();
 
