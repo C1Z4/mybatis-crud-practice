@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rentcar.mapper.RentCarMapper_hjh">
+
+    <resultMap id="memberResultMap" type="rentcar.model.dto.MemberDTO">
+        <id property="memberCode" column="MEMBER_CODE" />
+        <result property="memberName" column="MEMBER_NAME" />
+        <result property="phone" column="PHONE" />
+        <result property="level" column="LEVEL" />
+    </resultMap>
+
+    <select id="selectAllMember" resultMap="memberResultMap">
+        SELECT
+             MEMBER_CODE
+           , MEMBER_NAME
+           , PHONE
+           , LEVEL
+        FROM TBL_MEMBER
+    </select>
+
+</mapper>

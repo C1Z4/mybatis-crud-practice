@@ -1,15 +1,14 @@
 package rentcar.model.dto;
 
-public class MemberDTO {
-
+public class MemberAndLevelDTOKSE {
     private int memberCode;
     private String memberName;
     private String phone;
     private LevelDTO level;
 
-    public MemberDTO() {}
+    public MemberAndLevelDTOKSE() {}
 
-    public MemberDTO(int memberCode, String memberName, String phone, LevelDTO level) {
+    public MemberAndLevelDTOKSE(int memberCode, String memberName, String phone, LevelDTO level) {
         this.memberCode = memberCode;
         this.memberName = memberName;
         this.phone = phone;
@@ -18,11 +17,11 @@ public class MemberDTO {
 
     @Override
     public String toString() {
-        return "MemberDTO{" +
+        return "MemberAndLevelDTOKSE{" +
                 "memberCode=" + memberCode +
                 ", memberName='" + memberName + '\'' +
                 ", phone='" + phone + '\'' +
-                ", level='" + level + '\'' +
+                ", level=" + level +
                 '}';
     }
 
@@ -56,12 +55,5 @@ public class MemberDTO {
 
     public void setLevel(LevelDTO level) {
         this.level = level;
-    }
-
-    public void setLevel(String level) {
-        if (this.level == null) {
-            this.level = new LevelDTO();
-        }
-        this.level.setLevel(level);
     }
 }
