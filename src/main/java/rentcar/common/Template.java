@@ -33,9 +33,9 @@ public class Template {
 
             Configuration configuration = new Configuration(environment);
 
-            configuration.addMapper(RentCarMapperAJM.class);
-            configuration.addMapper(rentcar.mapper.MemberMapper_YJE.class);
-            configuration.addMapper(RentCarMapper_rjw.class);
+//            configuration.addMapper(RentCarMapperAJM.class);
+//            configuration.addMapper(rentcar.mapper.MemberMapper_YJE.class);
+//            configuration.addMapper(RentCarMapper_rjw.class);
             configuration.addMapper(rentcar.mapper.MemberMapperKSE.class);
 
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
