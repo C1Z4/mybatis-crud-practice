@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import rentcar.mapper.RentCarMapper_rjw;
+import rentcar.mapper.MemberMapperKSE;
 
 public class Template {
 
@@ -29,6 +30,7 @@ public class Template {
             Configuration configuration = new Configuration(environment);
 
             configuration.addMapper(RentCarMapper_rjw.class);
+            configuration.addMapper(rentcar.mapper.MemberMapperKSE.class);
 
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
 
