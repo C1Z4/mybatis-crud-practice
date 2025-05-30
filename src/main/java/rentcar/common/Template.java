@@ -28,7 +28,7 @@ public class Template {
                     , new PooledDataSource(DRIVER, URL, USER, PASSWORD));
 
             Configuration configuration = new Configuration(environment);
-
+            configuration.addMapper(rentcar.mapper.MemberMapper_YJE.class);
             configuration.addMapper(RentCarMapper_rjw.class);
             configuration.addMapper(rentcar.mapper.MemberMapperKSE.class);
 
