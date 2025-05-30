@@ -1,11 +1,7 @@
 package rentcar.run;
 
-import rentcar.controller.MemberControllerYJE;
-import rentcar.controller.MemberController_rjw;
-import rentcar.model.dto.MemberDTO;
 import rentcar.controller.MemeberControllerKSE;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;

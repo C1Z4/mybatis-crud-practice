@@ -1,7 +1,7 @@
 package rentcar.controller;
 
 import rentcar.model.dto.MemberAndLevelDTO_YJE;
-import rentcar.model.dto.MemberDTO;
+import rentcar.model.dto.MemberDTO_rjw;
 import rentcar.model.service.MemberService_YJE;
 
 import java.util.List;
@@ -17,10 +17,10 @@ public class MemberControllerYJE {
 
     public void selectAllMembers() {
 
-        List<MemberDTO> memberList = memberService.selectAllMembers();
+        List<MemberDTO_rjw> memberList = memberService.selectAllMembers();
 
         if (memberList != null) {
-            for (MemberDTO member: memberList) {
+            for (MemberDTO_rjw member: memberList) {
                 System.out.println(member);
             }
         } else {
@@ -43,7 +43,7 @@ public class MemberControllerYJE {
 
     public void selectMemberByCode(int code) {
 
-        MemberDTO member = memberService.selectMemberByCode(code);
+        MemberDTO_rjw member = memberService.selectMemberByCode(code);
 
         if (member != null) {
             System.out.println(member);
@@ -65,7 +65,7 @@ public class MemberControllerYJE {
 
     public void registMember(Map<String, String> parameter) {
 
-        MemberDTO member = new MemberDTO();
+        MemberDTO_rjw member = new MemberDTO_rjw();
         member.setMemberName(parameter.get("name"));
         member.setPhone(parameter.get("phone"));
         member.setLevel(parameter.get("level"));
@@ -79,7 +79,7 @@ public class MemberControllerYJE {
 
 
     public void modifyMember(int code, Map<String, String> parameter) {
-        MemberDTO member = new MemberDTO();
+        MemberDTO_rjw member = new MemberDTO_rjw();
         member.setMemberCode(code);
         member.setMemberName(parameter.get("name"));
         member.setPhone(parameter.get("phone"));

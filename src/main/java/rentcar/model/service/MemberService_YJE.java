@@ -3,7 +3,7 @@ package rentcar.model.service;
 import org.apache.ibatis.session.SqlSession;
 import rentcar.model.dao.MemberDAO_YJE;
 import rentcar.model.dto.MemberAndLevelDTO_YJE;
-import rentcar.model.dto.MemberDTO;
+import rentcar.model.dto.MemberDTO_rjw;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,14 +19,14 @@ public class MemberService_YJE {
         memberDAO = new MemberDAO_YJE();
     }
 
-    public List<MemberDTO> selectAllMembers() {
+    public List<MemberDTO_rjw> selectAllMembers() {
         SqlSession sqlSession = getSqlSession();
 
         Map<String, Object> parameter = new HashMap<>();
         parameter.put("condition", null);
         parameter.put("value", null);
 
-        List<MemberDTO> memberList = memberDAO.selectAllMembers(sqlSession);
+        List<MemberDTO_rjw> memberList = memberDAO.selectAllMembers(sqlSession);
 
         sqlSession.close();
 
@@ -43,10 +43,10 @@ public class MemberService_YJE {
         return memberList;
     }
 
-    public MemberDTO selectMemberByCode(int code) {
+    public MemberDTO_rjw selectMemberByCode(int code) {
         SqlSession sqlSession = getSqlSession();
 
-        MemberDTO member = memberDAO.selectMemberByCode(sqlSession, code);
+        MemberDTO_rjw member = memberDAO.selectMemberByCode(sqlSession, code);
 
         sqlSession.close();
 
@@ -64,7 +64,7 @@ public class MemberService_YJE {
         return member;
     }
 
-    public boolean registMember(MemberDTO member) {
+    public boolean registMember(MemberDTO_rjw member) {
 
         SqlSession sqlSession = getSqlSession();
 
@@ -81,7 +81,7 @@ public class MemberService_YJE {
         return result > 0 ? true : false;
     }
 
-    public boolean modifyMember(MemberDTO member) {
+    public boolean modifyMember(MemberDTO_rjw member) {
 
         SqlSession sqlSession = getSqlSession();
 

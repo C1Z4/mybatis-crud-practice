@@ -1,22 +1,22 @@
 package rentcar.mapper;
 
 import rentcar.model.dto.MemberAndLevelDTO_YJE;
-import rentcar.model.dto.MemberDTO;
+import rentcar.model.dto.MemberDTO_rjw;
 
 import java.util.List;
 
 public interface MemberMapper_YJE {
-    List<MemberDTO> selectAllMembers();
+    List<MemberDTO_rjw> selectAllMembers();
 
     List<MemberAndLevelDTO_YJE> selectAllMembersWith();
 
-    MemberDTO selectMemberByCode(int code);
+    MemberDTO_rjw selectMemberByCode(int code);
 
     MemberAndLevelDTO_YJE selectMemberByCodeWith(int code);
 
-    int insertMember(MemberDTO member);
+    int insertMember(MemberDTO_rjw member);
 
-    int updateMember(MemberDTO member);
+    int updateMember(MemberDTO_rjw member);
 
     int deleteMember(int code);
 }

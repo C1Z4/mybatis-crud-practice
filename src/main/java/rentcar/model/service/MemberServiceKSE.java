@@ -4,10 +4,9 @@ import org.apache.ibatis.session.SqlSession;
 import rentcar.mapper.MemberMapperKSE;
 import rentcar.model.dao.MemberDAOKSE;
 import rentcar.model.dto.MemberAndLevelDTOKSE;
-import rentcar.model.dto.MemberDTO;
+import rentcar.model.dto.MemberDTO_rjw;
 
 import java.util.List;
-import java.util.Map;
 
 import static rentcar.common.Template.getSqlSession;
 
@@ -39,7 +38,7 @@ public class MemberServiceKSE {
         return member;
     }
 
-    public boolean registMember(MemberDTO member) {
+    public boolean registMember(MemberDTO_rjw member) {
         SqlSession sqlSession = getSqlSession();
 
         int result = memberDAO.registMember(sqlSession, member);
@@ -55,7 +54,7 @@ public class MemberServiceKSE {
         return result > 0 ? true : false;
     }
 
-    public boolean modifyMember(MemberDTO member) {
+    public boolean modifyMember(MemberDTO_rjw member) {
         SqlSession sqlSession = getSqlSession();
 
         int result = memberDAO.modifyMember(sqlSession, member);

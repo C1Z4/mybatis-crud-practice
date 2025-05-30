@@ -7,8 +7,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
+
+import rentcar.mapper.RentCarMapperAJM;
+
 import rentcar.mapper.RentCarMapper_rjw;
 import rentcar.mapper.MemberMapperKSE;
+
 
 public class Template {
 
@@ -28,6 +32,8 @@ public class Template {
                     , new PooledDataSource(DRIVER, URL, USER, PASSWORD));
 
             Configuration configuration = new Configuration(environment);
+
+            configuration.addMapper(RentCarMapperAJM.class);
             configuration.addMapper(rentcar.mapper.MemberMapper_YJE.class);
             configuration.addMapper(RentCarMapper_rjw.class);
             configuration.addMapper(rentcar.mapper.MemberMapperKSE.class);

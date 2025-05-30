@@ -3,7 +3,7 @@ package rentcar.model.service;
 import org.apache.ibatis.session.SqlSession;
 import rentcar.mapper.RentCarMapper_rjw;
 import rentcar.model.dto.LevelDTO;
-import rentcar.model.dto.MemberDTO;
+import rentcar.model.dto.MemberDTO_rjw;
 
 import java.util.List;
 
@@ -11,33 +11,33 @@ import static rentcar.common.Template.getSqlSession;
 
 public class MemberService_rjw {
 
-    public MemberDTO selectMemberLevelInfo(Integer memberCode) {
+    public MemberDTO_rjw selectMemberLevelInfo(Integer memberCode) {
 
         SqlSession sqlSession = getSqlSession();
 
         RentCarMapper_rjw rentCarMapper = sqlSession.getMapper(RentCarMapper_rjw.class);
 
-        MemberDTO memberLevelInfo = rentCarMapper.selectMemberLevelInfo(memberCode);
+        MemberDTO_rjw memberLevelInfo = rentCarMapper.selectMemberLevelInfo(memberCode);
 
         sqlSession.close();
 
         return memberLevelInfo;
     }
 
-    public List<MemberDTO> selectAllMemberWithLevel() {
+    public List<MemberDTO_rjw> selectAllMemberWithLevel() {
 
         SqlSession sqlSession = getSqlSession();
 
         RentCarMapper_rjw rentCarMapper = sqlSession.getMapper(RentCarMapper_rjw.class);
 
-        List<MemberDTO> memberWithLevelList = rentCarMapper.selectAllMemberWithLevel();
+        List<MemberDTO_rjw> memberWithLevelList = rentCarMapper.selectAllMemberWithLevel();
 
         sqlSession.close();
 
         return memberWithLevelList;
     }
 
-    public boolean registMember(MemberDTO member) {
+    public boolean registMember(MemberDTO_rjw member) {
 
         SqlSession sqlSession = getSqlSession();
 
@@ -57,7 +57,7 @@ public class MemberService_rjw {
     }
 
 
-    public boolean modifyMember(MemberDTO member) {
+    public boolean modifyMember(MemberDTO_rjw member) {
         SqlSession sqlSession = getSqlSession();
 
         RentCarMapper_rjw rentCarMapper = sqlSession.getMapper(RentCarMapper_rjw.class);

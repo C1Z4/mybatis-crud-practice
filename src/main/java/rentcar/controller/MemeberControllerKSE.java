@@ -1,7 +1,7 @@
 package rentcar.controller;
 
 import rentcar.model.dto.MemberAndLevelDTOKSE;
-import rentcar.model.dto.MemberDTO;
+import rentcar.model.dto.MemberDTO_rjw;
 import rentcar.model.service.MemberServiceKSE;
 
 import java.util.List;
@@ -43,7 +43,7 @@ public class MemeberControllerKSE {
         String phone = parameter.get("phone");
         String level = parameter.get("level");
 
-        MemberDTO member = new MemberDTO();
+        MemberDTO_rjw member = new MemberDTO_rjw();
         member.setMemberName(memberName);
         member.setPhone(phone);
         member.setLevel(level);
@@ -61,7 +61,7 @@ public class MemeberControllerKSE {
         String phone = parameter.get("phone");
         String level = parameter.get("level");
 
-        MemberDTO member = new MemberDTO();
+        MemberDTO_rjw member = new MemberDTO_rjw();
         member.setMemberCode(memberCode);
         member.setMemberName(memberName);
         member.setPhone(phone);

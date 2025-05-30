@@ -1,17 +1,17 @@
 package rentcar.common;
 
-import rentcar.model.dto.MemberDTO;
+import rentcar.model.dto.MemberDTO_rjw;
 
 import java.util.List;
 
 public class PrintResult_rjw {
 
-    public void printLevelInfo(MemberDTO memberLevelInfo) {
+    public void printLevelInfo(MemberDTO_rjw memberLevelInfo) {
         System.out.println(memberLevelInfo.getMemberName() + "님의 등급은 " + memberLevelInfo.getLevel().getLevel() + ", 할인율은 " + memberLevelInfo.getLevel().getDiscountRate() + " 입니다.");
     }
 
-    public void printMemberList(List<MemberDTO> memberWithLevelList) {
-        for (MemberDTO member : memberWithLevelList) {
+    public void printMemberList(List<MemberDTO_rjw> memberWithLevelList) {
+        for (MemberDTO_rjw member : memberWithLevelList) {
             System.out.println(member);
         }
     }

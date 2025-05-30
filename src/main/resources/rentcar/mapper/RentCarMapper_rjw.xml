@@ -9,7 +9,7 @@
         <result property="discountRate" column="DISCOUNT_RATE" />
     </resultMap>
 
-    <resultMap id="memberWithLevelResultMap" type="rentcar.model.dto.MemberDTO">
+    <resultMap id="memberWithLevelResultMap" type="rentcar.model.dto.MemberDTO_rjw">
         <id property="memberCode" column="MEMBER_CODE"/>
         <result property="memberName" column="MEMBER_NAME"/>
         <result property="phone" column="PHONE"/>
@@ -36,7 +36,7 @@
         ORDER BY M.MEMBER_CODE
     </select>
 
-    <insert id="registerMember" parameterType="rentcar.model.dto.MemberDTO">
+    <insert id="registerMember" parameterType="rentcar.model.dto.MemberDTO_rjw">
         INSERT INTO TBL_MEMBER
         (
         MEMBER_NAME,
@@ -49,7 +49,7 @@
         )
     </insert>
 
-    <update id="modifyMember" parameterType="rentcar.model.dto.MemberDTO">
+    <update id="modifyMember" parameterType="rentcar.model.dto.MemberDTO_rjw">
         UPDATE TBL_MEMBER
         <set>
             <if test="memberName != null and memberName != ''">

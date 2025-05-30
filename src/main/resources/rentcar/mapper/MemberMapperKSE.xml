@@ -4,7 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="rentcar.mapper.MemberMapperKSE">
     <!-- MemberDTO ResultMap -->
-    <resultMap id="memberResultMap" type="rentcar.model.dto.MemberDTO">
+    <resultMap id="memberResultMap" type="rentcar.model.dto.MemberDTO_rjw">
         <id property="memberCode" column="MEMBER_CODE"/>
         <result property="memberName" column="MEMBER_NAME"/>
         <result property="phone" column="PHONE"/>
@@ -53,7 +53,7 @@
     </select>
 
     <!-- 회원 등록 -->
-    <insert id="registMapper" parameterType="rentcar.model.dto.MemberDTO">
+    <insert id="registMapper" parameterType="rentcar.model.dto.MemberDTO_rjw">
         INSERT INTO TBL_MEMBER
         (
             MEMBER_NAME,
@@ -68,7 +68,7 @@
         )
     </insert>
 
-    <update id="modifyMember" parameterType="rentcar.model.dto.MemberDTO">
+    <update id="modifyMember" parameterType="rentcar.model.dto.MemberDTO_rjw">
         UPDATE TBL_MEMBER
         <set>
             <if test="memberName != null and memberName != ''">

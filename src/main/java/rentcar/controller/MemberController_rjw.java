@@ -1,7 +1,7 @@
 package rentcar.controller;
 
 import rentcar.common.PrintResult_rjw;
-import rentcar.model.dto.MemberDTO;
+import rentcar.model.dto.MemberDTO_rjw;
 import rentcar.model.service.MemberService_rjw;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class MemberController_rjw {
 
     public void selectMemberLevelInfo(Integer memberCode) {
 
-        MemberDTO memberLevelInfo = memberService.selectMemberLevelInfo(memberCode);
+        MemberDTO_rjw memberLevelInfo = memberService.selectMemberLevelInfo(memberCode);
 
         if (memberLevelInfo != null) {
             printResult.printLevelInfo(memberLevelInfo);
@@ -30,7 +30,7 @@ public class MemberController_rjw {
 
     public void selectAllMemberWithLevel() {
 
-        List<MemberDTO> memberWithLevelList = memberService.selectAllMemberWithLevel();
+        List<MemberDTO_rjw> memberWithLevelList = memberService.selectAllMemberWithLevel();
 
         if (memberWithLevelList != null) {
             printResult.printMemberList(memberWithLevelList);
@@ -39,7 +39,7 @@ public class MemberController_rjw {
         printResult.errorMessage("memberWithLevelList");
     }
 
-    public void registMember(MemberDTO newMember) {
+    public void registMember(MemberDTO_rjw newMember) {
 
         if (memberService.registMember(newMember)) {
             printResult.successMessage("registMember");
@@ -48,7 +48,7 @@ public class MemberController_rjw {
         printResult.errorMessage("registMember");
     }
 
-    public void modifyMember(MemberDTO member) {
+    public void modifyMember(MemberDTO_rjw member) {
 
         if (memberService.modifyMember(member)) {
             printResult.successMessage("modifyMember");
